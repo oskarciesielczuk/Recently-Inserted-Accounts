@@ -1,18 +1,12 @@
-# Salesforce DX Project: Next Steps
+# Recently Inserted Accounts
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Here is the plan I used to figure out the steps i need to take to construct my Lightning Component:
+[Recently Inserted Accounts MVC.pdf](https://github.com/oskarciesielczuk/Recently-Inserted-Accounts/files/8756261/Recently.Inserted.Accounts.MVC.pdf)
 
-## How Do You Plan to Deploy Your Changes?
+In the end, I also decided to add a count of how many records are selected, to have a go at working with 'onclick' events.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+# Problems I Ran Into
 
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+1. The component was not showing up in Lightning App Builder - fixed by adding Lightning__AppPage as a target in the metadate file.
+2. The count stayed at 0 - fixed by using the getSelectedRows() function built in with lightning-datatable to get a list of selected rows.
+3. Some columns did not have any data in them - fixed by making sure that the fieldName for each column matched the name of the field returned by the SOQL query.
